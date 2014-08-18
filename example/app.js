@@ -19,6 +19,12 @@ app.all('*', function (req, res, next) {
                 "rules":   {
                     "required": {
                         "message": "Limit is required"
+                    },
+                    "number":   {
+                        "allowEmpty":  false,
+                        "integerOnly": true,
+                        "min":         0,
+                        "max":         100
                     }
                 },
                 "options": {
