@@ -1,0 +1,35 @@
+{
+    "name":            "express-async-validator",
+    "description":     "Express middleware for the validator module.",
+    "author":          {
+        "name":  "Dmitry Les",
+        "email": "dmitry.s.les@gmail.com"
+    },
+    "version":         "0.0.1",
+    "homepage":        "https://github.com/dmitriyles/express-async-validator",
+    "repository":      {
+        "type": "git",
+        "url":  "git://github.com/dmitriyles/express-async-validator.git"
+    },
+    "main":            "./index.js",
+    "engines":         {
+        "node": ">= 0.8"
+    },
+    "dependencies":    {
+        "bluebird":   "^2.3.0",
+        "underscore": "^1.6.0"
+    },
+    "devDependencies": {
+        "express":     "^4.2.0",
+        "body-parser": "~1.0.0"
+    },
+    "keywords":        [
+        "express",
+        "validator",
+        "validation",
+        "validate"
+    ],
+    "bugs":            {
+        "url": "https://github.com/dmitriyles/express-async-validator/issues"
+    }
+}
