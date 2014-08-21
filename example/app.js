@@ -20,7 +20,8 @@ app.all('*', function (req, res) {
                     "required": {
                         "message": "Count is required"
                     },
-                    "isInt":    {}
+                    "isInt":    {},
+                    "toInt":    {}
                 },
                 "source":       ["query"],
                 "allowEmpty":   false,
@@ -30,6 +31,10 @@ app.all('*', function (req, res) {
                 "rules":  {
                     "isEmail": {
                         "message": "Field is not a valid email"
+                    },
+                    "equals":  {
+                        "message":    "Email should be \"first@example.com\"",
+                        "comparison": "first@example.com"
                     }
                 },
                 "source": ["query"]
