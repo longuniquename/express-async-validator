@@ -12,7 +12,7 @@ require('http').createServer(app).listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));
 });
 
-app.all('*', function (req, res, next) {
+app.all('*', function (req, res) {
     req
         .model({
             "count": {
@@ -20,9 +20,7 @@ app.all('*', function (req, res, next) {
                     "required": {
                         "message": "Count is required"
                     },
-                    "integer":  {
-                        "allowEmpty": false
-                    }
+                    "isInt":    {}
                 },
                 "source":       ["query"],
                 "allowEmpty":   false,
@@ -30,9 +28,8 @@ app.all('*', function (req, res, next) {
             },
             "email": {
                 "rules":  {
-                    "email": {
-                        "allowEmpty": false,
-                        "message":    "Field is not a valid email"
+                    "isEmail": {
+                        "message": "Field is not a valid email"
                     }
                 },
                 "source": ["query"]
