@@ -14,34 +14,31 @@ require('http').createServer(app).listen(app.get('port'), function () {
 
 app.all('*', function (req, res, next) {
     req
-        .validate({
-            "limit":  {
-                "rules":   {
+        .model({
+            "count": {
+                "rules":        {
                     "required": {
-                        "message": "Limit is required"
+                        "message": "Count is required"
                     },
-                    "number":   {
-                        "allowEmpty":  false,
-                        "integerOnly": true,
-                        "min":         0,
-                        "max":         100
+                    "integer":  {
+                        "allowEmpty": false
                     }
                 },
-                "options": {
-                    "source": ["query"]
-                }
+                "source":       ["query"],
+                "allowEmpty":   false,
+                "defaultValue": null
             },
-            "offset": {
-                "rules":   {
-                    "required": {
-                        "message": "Offset is required"
+            "email": {
+                "rules":  {
+                    "email": {
+                        "allowEmpty": false,
+                        "message":    "Field is not a valid email"
                     }
                 },
-                "options": {
-                    "source": ["query"]
-                }
+                "source": ["query"]
             }
         })
+        .validate()
         .then(function (model) {
             res.status(200).json(model);
         })
